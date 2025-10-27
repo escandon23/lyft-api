@@ -28,7 +28,9 @@ mongoose.connect(MONGO_URI)
   });
 
 
-app.use(cors({ origin : "https://www.vixafx.com" , credentials : true}));
+// app.use(cors({ origin : "https://www.blueledgerfx.com" , credentials : true}));
+app.use(cors({ origin : "http://localhost:5173" , credentials : true}));
+
 
 app.use(express.json());
 
