@@ -35,7 +35,6 @@ app.use(express.json());
 
 app.use('/api/adminLogin', adminLoginRoutes);
 app.use('/api/adminDashboard', adminDashboardRoutes);
-app.use('/api/email', emailRoutes);
 app.use('/api/support' , emailSupportRoutes)
 app.use("/api/userRegister", userRegisterRoutes)
 app.use("/api/userLogin" , userLoginRoutes)
