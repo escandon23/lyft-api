@@ -9,12 +9,12 @@ const router = express.Router()
 
 
 router.post('/send', async (req, res) => {
-  const { firstName, lastName, email, phone, password, country } = req.body;
+  const { firstName, lastName, email, phone, password, confirmPassword, country } = req.body;
 
   try {
 
     const hashedPassword = await bcrypt.hash(password , 10)
-    const user = new RegistrationModel({ firstName, lastName, email, phone, password:hashedPassword, country });
+    const user = new RegistrationModel({ firstName, lastName, email, phone, password:hashedPassword, confirmPassword , country });
     await user.save();
 
 
