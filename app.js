@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import adminLoginRoutes from './routes/adminLogin.js';
 import adminDashboardRoutes from './routes/adminDashboard.js'; 
-import emailRoutes from './routes/email.js';
 import userRegisterRoutes from "./routes/userRegister.js";
 import userLoginRoutes from "./routes/userLogin.js";
 import userDashboardRoutes from "./routes/userDashboard.js";
