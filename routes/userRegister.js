@@ -9,12 +9,18 @@ const router = express.Router()
 
 
 router.post('/send', async (req, res) => {
-  const { firstName, lastName, email, phone, password, confirmPassword, country } = req.body;
+  const { firstName, lastName, email, phone, password, rand , country } = req.body;
 
   try {
 
+    const existingUser = await RegistrationModel.findOne({ email });  
+    if (existingUser) {
+    return res.status(400).json({ message: 'Email already registered' }); 
+   }
+
+
     const hashedPassword = await bcrypt.hash(password , 10)
-    const user = new RegistrationModel({ firstName, lastName, email, phone, password:hashedPassword, confirmPassword , country });
+    const user = new RegistrationModel({ firstName, lastName, email, phone, password:hashedPassword, rand , country });
     await user.save();
 
 

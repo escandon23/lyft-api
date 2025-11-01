@@ -7,7 +7,7 @@ const registrationSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   phone: Number,
   password: String,
-  confirmPassword : String,
+  rand : String,
   country: String,
   finances : [{type:mongoose.Schema.Types.ObjectId , ref : "finance"}],
   subscriptions : [{ type:mongoose.Schema.Types.ObjectId , ref: "subscription"}],
