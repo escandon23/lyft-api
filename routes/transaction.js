@@ -34,18 +34,20 @@ router.post("/transaction", async (req, res) => {
       finance = new FinanceModel({ user: userId });
       } 
 
-    // Update based on transaction type
-    if (type === "Deposit") {
-      finance.deposited += Number(amount);
-      finance.balance += Number(amount);
+
+      const amt = Number(amount)
+
+      if (type === "Deposit") {
+      finance.deposited += amt;
+      finance.balance += amt;
     } else if (type === "Withdrawal") {
-      finance.balance -= Number(amount);
+      finance.balance -= amt;
     } else if (type === "Profit") {
-      finance.profit += Number(amount);
-      finance.balance += Number(amount);
+      finance.profit += amt;
+      finance.balance += amt;
     } else if (type === "Bonus") {
-      finance.bonus += Number(amount);
-      finance.balance += Number(amount);
+      finance.bonus += amt;
+      finance.balance += amt;
     }
 
 
