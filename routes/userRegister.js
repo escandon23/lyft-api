@@ -1,15 +1,13 @@
 import express from "express";
-import mongoose from "mongoose"
 import bcrypt from "bcrypt"
 import RegistrationModel from "../models/registrationModel.js";
-import FinanceModel from "../models/financeModel.js";
 
 const router = express.Router()
 
 
 
 router.post('/send', async (req, res) => {
-  const { firstName, lastName, email, phone, password, rand , country } = req.body;
+  const { email,password, confirmPassword } = req.body;
 
   try {
 
@@ -20,7 +18,7 @@ router.post('/send', async (req, res) => {
 
 
     const hashedPassword = await bcrypt.hash(password , 10)
-    const user = new RegistrationModel({ firstName, lastName, email, phone, password:hashedPassword, rand , country });
+    const user = new RegistrationModel({ email, password:hashedPassword });
     await user.save();
 
 

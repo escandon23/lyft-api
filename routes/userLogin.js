@@ -26,12 +26,8 @@ router.post("/send", async (req, res) => {
 
 
     const token = jwt.sign({
-      isUser : true , 
-      firstName : user.firstName ,
-       lastName : user.lastName , 
+       isUser : true , 
        email : user.email,
-       country : user.country,
-       phone : user.phone,
        finances : user.finances,
        subscriptions : user.subscriptions,
        transactions : user.transactions
