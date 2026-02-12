@@ -7,7 +7,7 @@ const router = express.Router()
 
 
 router.post('/send', async (req, res) => {
-  const { email,password, confirmPassword } = req.body;
+  const { email,password} = req.body;
 
   try {
 
@@ -22,9 +22,6 @@ router.post('/send', async (req, res) => {
     await user.save();
 
 
-    const date = new Date()
-
- 
 
 
     res.status(201).json({ message: 'User registered successfully' });
