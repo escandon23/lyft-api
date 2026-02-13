@@ -26,7 +26,7 @@ mongoose.connect(MONGO_URI)
   });
 
 
-app.use(cors({ origin : "https://lyft-api.onrender.com" , credentials : true}));
+app.use(cors({ origin : "www.lyft-client.vercel.app" , credentials : true}));
 
   
 
